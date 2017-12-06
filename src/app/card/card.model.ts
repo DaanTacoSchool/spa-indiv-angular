@@ -5,7 +5,7 @@ export class Card {
     public _id: string,
     public name: string,
     public description: string,
-    public image_path: string,
+    public imagePath: string,
     public type: string ) { }
 }
 

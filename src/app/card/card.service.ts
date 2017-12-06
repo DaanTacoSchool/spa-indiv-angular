@@ -11,7 +11,7 @@ export class CardService {
 
   constructor(private http: Http) { }
 
-  getCard(cardid: string): Promise<Card> {
+  public getCard(cardid: string): Promise<Card> {
     return this.http.get(this.serverUrl + '/' + cardid, { headers: this.headers })
       .toPromise()
       .then(response => {
@@ -21,6 +21,7 @@ export class CardService {
         return this.handleError(error);
       });
   }
+
   /* mogelijk dat dit naar de deckservice gaat! LET OP DE URL */
   public getCardsInDeck(deckid: string): Promise<Card[]> {
     console.log('cards in deck ophalen van server');

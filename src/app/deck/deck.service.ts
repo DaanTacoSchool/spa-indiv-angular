@@ -7,14 +7,14 @@ import {Card} from '../card/card.model';
 @Injectable()
 export class DeckService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private serverUrl = environment.serverUrl + '/decks'; // URL to web api
+  private serverUrl = environment.serverUrl + '/deck'; // URL to web api
   private decks: Deck[] = [];
 
   constructor(private http: Http) { }
 
 
   public getDecks(): Promise<Deck[]> {
-    console.log('decks ophalen van server');
+    console.log('deck ophalen van server');
     return this.http.get(this.serverUrl, { headers: this.headers })
       .toPromise()
       .then(response => {
