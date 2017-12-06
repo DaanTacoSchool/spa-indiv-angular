@@ -1,4 +1,4 @@
-import { Card } from '../shared/card.model';
+import { Card } from '../card/card.model';
 
 export class Deck {
 

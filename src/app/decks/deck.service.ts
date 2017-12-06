@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Deck} from './deck.model';
 import { environment } from '../../environments/environment';
 import { Http, Headers } from '@angular/http';
+import {Card} from '../card/card.model';
 
 @Injectable()
 export class DeckService {
