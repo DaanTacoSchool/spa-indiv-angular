@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewCard()">New card</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-card-item
+      *ngFor="let cardEl of cards; let i = index"
+      [card]="cardEl"
+      [index]="cardEl._id"></app-card-item>
+  </div>
+</div>
+

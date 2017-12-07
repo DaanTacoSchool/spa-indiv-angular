@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Http, Headers } from '@angular/http';
 import {Card} from './card.model';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class CardService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private serverUrl = environment.serverUrl + '/cards'; // URL to web api
   private cards: Card[] = [];
+  public cardsChanged = new Subject<Card[]>();
 
   constructor(private http: Http) { }
 

@@ -7,7 +7,7 @@ import {Card} from '../card/card.model';
 @Injectable()
 export class DeckService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private serverUrl = environment.serverUrl + '/deck'; // URL to web api
+  private serverUrl = environment.serverUrl + '/decks'; // URL to web api
   private decks: Deck[] = [];
 
   constructor(private http: Http) { }
@@ -56,13 +56,14 @@ export class DeckService {
       });
   }
 
+  /* NOTE:  kan put en post zijn */
   addCardToDeck(deck: Deck, card: Card) {
 
     const d = deck;
     const c = card;
 
     // add deck(id) to post and pass card in body
-    return this.http.post(this.serverUrl + '/' + d , c)
+    return this.http.post(this.serverUrl + '/' + d._id , c)
       .toPromise()
       .then(response => {
         return response.json() as Deck;
