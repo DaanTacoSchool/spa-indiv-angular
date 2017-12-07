@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import {CardService} from './card/card.service';
 import {DeckService} from './deck/deck.service';
 import { AppRoutingModule } from './app-routing.module';
+import { CardDetailComponent } from './card/card-detail/card-detail.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
     CardComponent,
     CardListComponent,
     CardItemComponent,
-    HeaderComponent
+    HeaderComponent,
+    CardDetailComponent
   ],
   imports: [
     BrowserModule,
