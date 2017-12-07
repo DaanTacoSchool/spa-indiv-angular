@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Deck} from './deck.model';
 import { environment } from '../../environments/environment';
 import { Http, Headers } from '@angular/http';
+import {Card} from '../card/card.model';
 
 @Injectable()
 export class DeckService {
@@ -13,7 +14,7 @@ export class DeckService {
 
 
   public getDecks(): Promise<Deck[]> {
-    console.log('decks ophalen van server');
+    console.log('deck ophalen van server');
     return this.http.get(this.serverUrl, { headers: this.headers })
       .toPromise()
       .then(response => {
@@ -55,13 +56,14 @@ export class DeckService {
       });
   }
 
+  /* NOTE:  kan put en post zijn */
   addCardToDeck(deck: Deck, card: Card) {
 
     const d = deck;
     const c = card;
 
     // add deck(id) to post and pass card in body
-    return this.http.post(this.serverUrl + '/' + d , c)
+    return this.http.post(this.serverUrl + '/' + d._id , c)
       .toPromise()
       .then(response => {
         return response.json() as Deck;
