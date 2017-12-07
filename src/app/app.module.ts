@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
-
+import { DropdownDirective } from './shared/dropdown.directive';
 import { AppComponent } from './app.component';
 import { DeckComponent } from './deck/deck.component';
 import { CardComponent } from './card/card.component';
@@ -13,6 +13,7 @@ import {CardService} from './card/card.service';
 import {DeckService} from './deck/deck.service';
 import { AppRoutingModule } from './app-routing.module';
 import { CardDetailComponent } from './card/card-detail/card-detail.component';
+import { CardStartComponent } from './card/card-start/card-start.component';
 
 
 @NgModule({
@@ -23,7 +24,9 @@ import { CardDetailComponent } from './card/card-detail/card-detail.component';
     CardListComponent,
     CardItemComponent,
     HeaderComponent,
-    CardDetailComponent
+    CardDetailComponent,
+    DropdownDirective,
+    CardStartComponent
   ],
   imports: [
     BrowserModule,

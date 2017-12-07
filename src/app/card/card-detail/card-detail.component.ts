@@ -28,28 +28,11 @@ export class CardDetailComponent implements OnInit {
         }
       );
   }
-/*
-  onAddToShoppingList() {
-    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
+
+  onAddToDeck() {
+    // this.cardService.a(this.card);
+    console.log('todo: add to deck');
   }
-*/
-/*
-  onEditRecipe() {
-    // recipe-edit.component -> onSubmit -> updaterecipe
-    this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
-  }
-*/
-/*
-  onDeleteRecipe() {
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.id = params['id'];
-        } );
-    this.recipeService.deleteRecipe(this.id);
-    this.router.navigate(['/recipes']);
-  }
-*/
 
 
 
