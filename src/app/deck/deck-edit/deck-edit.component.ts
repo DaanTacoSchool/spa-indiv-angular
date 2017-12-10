@@ -5,6 +5,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {DeckService} from "../deck.service";
 import {CardService} from "../../card/card.service";
 import {Subscription} from "rxjs/Subscription";
+import {Card} from "../../card/card.model";
 
 @Component({
   selector: 'app-deck-edit',
@@ -14,6 +15,8 @@ import {Subscription} from "rxjs/Subscription";
 export class DeckEditComponent implements OnInit {
 
   id: string;
+  cardid: string; // for when creating a deck from cardlist
+  card: Card;
   editMode = false;
   deckForm: FormGroup;
   public deck: Deck;
@@ -36,59 +39,68 @@ export class DeckEditComponent implements OnInit {
         (params: Params) => {
           this.id = params['id'];
           this.editMode = params['id'] != null; //  != null
-          console.log('id: '+ this.id + ' --- editmdode: '+this.editMode);
-        //  this.initForm();
-
+          this.cardid = params['cardid'];
         });
-    //deckSchanged
     this.subscription = this.deckService.decksChanged
       .subscribe(
         (decks: Deck[]) => {
           this.decks = decks;
         }
       );
-    this.deckService.getDeck(this.id.toString())
-      .then(deck => this.deck = deck)
-      .catch(error => console.log( 'error in edit init'+ error));
+    if(this.id) {
+      this.deckService.getDeck(this.id.toString())
+        .then(deck => this.deck = deck)
+        .catch(error => console.log('error in edit init' + error));
+    }
+    if(this.cardid) {
+      console.log('card loaded');
+      this.cardService.getCard(this.cardid.toString())
+        .then(card => this.card = card)
+        .catch(error => console.log('error in edit init' + error));
+    }
     this.initForm();
   }
 
   onSubmit() {
+    // check whether this is an edit or a kind of creation, make sure the right data is put through.
+    let tmpId:string;
+    if(this.id === 'new' || this.id==null){
+      tmpId=null;
+    }else{
+      tmpId= this.id;
+    }
+
+    let tmpCards: Card[];
+    if(tmpId){
+      tmpCards=this.deck.cards;
+    }else if(this.card){
+      tmpCards=[this.card];
+    }
+
+    console.log(tmpCards);
     const newDeck = new Deck(
-      this.id,
+     tmpId,
       this.deckForm.value['name'],
       this.deckForm.value['description'],
       this.deckForm.value['made by'],
       this.deckForm.value['hero'],
-      this.deck.cards
-      // this.deckForm.value['cards'] // causes cards to be removed this will be moved to its own component probably
+      tmpCards
+
     );
     if (this.editMode) {
       this.deckService.updateDeck(this.id,newDeck);
-      this.subscription.add(null);
+     // this.subscript
     } else {
-      this.deckService.createDeck(this.deckForm.value);
+      this.deckService.createDeck(newDeck); // this.deckForm.value
     }
     this.onCancel();
   }
 
   goToOverview(){
-      this.router.navigate(['view'], {relativeTo: this.route.parent});
+    this.router.navigate(['../../../','view', this.id], {relativeTo: this.route});
 
   }
 
-  // Dont use this
-  onAddCardToDeck() {
-    (<FormArray>this.deckForm.get('cards')).push(
-      new FormGroup({
-        'name': new FormControl(null, Validators.required)
-      })
-    );
-  }
-// dont use this either
-  onDeleteCardFromDck(index: number) {
-    (<FormArray>this.deckForm.get('cards')).removeAt(index);
-  }
 
 
   onCancel() {
@@ -101,31 +113,26 @@ export class DeckEditComponent implements OnInit {
     let deckMade_By = '';
     let deckDescription = '';
     let deckHero_type = '';
-    /*let deckName = this.deck.name;
-    let deckMade_By = this.deck.made_by;
-    let deckDescription = this.deck.description;
-    let deckHero_type = this.deck.hero_type;
-    const deckCards = this.deck.cards; */
-console.log('editmode zu true moeten zijn '+this.editMode);
     if (this.editMode) {
       this.deckService.getDeck(this.id.toString())
-        .then(deck => this.deck = deck)
-        .catch(error => console.log('editmode error'));
-      deckName = this.deck.name;
-      deckMade_By = this.deck.made_by;
-      deckDescription = this.deck.description;
-      deckHero_type = this.deck.hero_type;
+        .then(deck => { this.deck = deck;
+          deckName = this.deck.name;
+          deckMade_By = this.deck.made_by;
+          deckDescription = this.deck.description;
+          deckHero_type = this.deck.hero_type; })
+        .catch(error => console.log(error));
+
     }else{
-      console.log('geen edit mode');
+      console.log('creation mode');
     }
 
+    // note! doesnt have ids or cards here so make sure to include them from other sources. this is because these things can be missing.
     this.deckForm = new FormGroup({
       'name': new FormControl(deckName),
       'made by': new FormControl(deckMade_By),
       'description': new FormControl(deckDescription),
       'hero': new FormControl(deckHero_type)
     });
-
 
   }
 

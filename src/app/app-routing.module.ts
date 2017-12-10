@@ -13,24 +13,9 @@ import {Deck} from './deck/deck.model';
 import {DeckDetailComponent} from './deck/deck-detail/deck-detail.component';
 import {DeckEditComponent} from './deck/deck-edit/deck-edit.component';
 import {DeckViewComponent} from './deck/deck-view/deck-view.component';
-//import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-//import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-//import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 const appRoutes: Routes = [
-  /*
-const appRoutes: Routes = [
-  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'recipes', component: RecipesComponent, children: [
-    { path: '', component: RecipeStartComponent },
-    { path: 'new', component: RecipeEditComponent },
-    { path: ':id', component: RecipeDetailComponent },
-    { path: ':id/edit', component: RecipeEditComponent },
-  ] },
-  { path: 'shopping-list', component: ShoppingListComponent },
-];
 
-  */
   { path: '', redirectTo: '/cards', pathMatch: 'full' },
   { path: 'cards', component: CardComponent, children: [
     { path: '', component: CardStartComponent },
@@ -39,10 +24,13 @@ const appRoutes: Routes = [
   ]},
   { path: 'deck', component: DeckComponent, children: [
     { path: '', component: DeckStartComponent },
-    { path: ':id/view', component: DeckViewComponent },
+    { path: 'new', component: DeckEditComponent },
+    { path: 'new/:cardid', component: DeckEditComponent },
     { path: ':id', component: DeckDetailComponent },
     { path: ':id/edit', component: DeckEditComponent },
   ] },
+  { path: 'view/:id', component: DeckViewComponent},
+
 ];
 // TODO add path for new deck
 @NgModule({

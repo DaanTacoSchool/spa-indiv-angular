@@ -15,7 +15,8 @@ export class DeckListComponent implements OnInit,OnDestroy {
 
   constructor(private deckService: DeckService,
               private router: Router,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.subscription = this.deckService.decksChanged
@@ -25,13 +26,13 @@ export class DeckListComponent implements OnInit,OnDestroy {
         }
       );
     this.deckService.getDecks()
-      .then(decks => this.decks = decks)
+      .then(decks => {this.decks = decks; })
       .catch(error => console.log(error));
+
   }
 
+
   onNewDeck() {
-    // TODO:either new component or implement formgroup here
-    // this.deckService.createDeck()
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 

@@ -13,12 +13,10 @@ export class DeckService {
   private serverUrl = environment.serverUrl + '/decks'; // URL to web api
   private decks: Deck[] = [];
   public decksChanged = new Subject<Deck[]>();
-  public deckChanged = new Observable<Deck[]>();
+  public deckChanged = new Subject<Deck>(); // single deck for editing and creating
   constructor(private http: Http) { }
 
-public observTest(): Observable<Deck[]> {
-    return of(this.decks);
-}
+
   public getDecks(): Promise<Deck[]> {
     console.log('deck ophalen van server');
     return this.http.get(this.serverUrl, { headers: this.headers })
@@ -36,14 +34,14 @@ public observTest(): Observable<Deck[]> {
     return this.http.get(this.serverUrl + '/' + deckid, { headers: this.headers })
       .toPromise()
       .then(response => {
+        // TODO: maybe subscription .next?
         return response.json() as Deck;
 
       })
       .catch(error => {
-        return this.handleError('getrecipe id service');
+        return this.handleError(error);
       });
   }
-
 
 
   createDeck(deck: Deck) {
@@ -53,7 +51,10 @@ public observTest(): Observable<Deck[]> {
     return this.http.post(this.serverUrl , d)
       .toPromise()
       .then(response => {
-        return response.json() as Deck;
+        let tmpDeck = response.json() as Deck;
+        this.decks.push(tmpDeck);
+        this.decksChanged.next(this.decks.slice());
+        return tmpDeck;
       })
       .catch(error => {
         return this.handleError(error);
@@ -61,17 +62,20 @@ public observTest(): Observable<Deck[]> {
   }
 
   /* NOTE:  kan put en post zijn */
+
   addCardToDeck(deck: Deck, card: Card) {
 
     const d = deck;
     const c = card;
-    //add card to deck->cadarray...
-
-    // add deck(id) to post and pass card in body
-    return this.http.put(this.serverUrl + '/' + d._id , c)
+    d.cards.push(c);
+    // calls the updatedeck method in api
+    return this.http.put(this.serverUrl + '/' + d._id , d)
       .toPromise()
       .then(response => {
-        return response.json() as Deck;
+        const tDeck= response.json() as Deck;
+        this.deckChanged.next(tDeck);
+        return tDeck;
+
       })
       .catch(error => {
         return this.handleError(error);
@@ -79,11 +83,16 @@ public observTest(): Observable<Deck[]> {
   }
 
 
+
   updateDeck(index: string, newDeck: Deck) {
 
     return this.http.put(this.serverUrl + '/' + index , newDeck)
       .toPromise()
       .then(response => {
+       // this.decks.push(newDeck);
+        let arrayIndex = this.decks.findIndex(x=>x._id === index);
+        this.decks[arrayIndex] = response.json() as Deck;
+         this.decksChanged.next(this.decks.slice());
         return response.json() as Deck;
       })
       .catch(error => {
@@ -95,6 +104,7 @@ public observTest(): Observable<Deck[]> {
     return this.http.delete(this.serverUrl + '/' + deckid, { headers: this.headers })
       .toPromise()
       .then(response => {
+        this.decksChanged.next(this.decks.slice());
         return response.json();
       })
       .catch(error => {
@@ -103,7 +113,7 @@ public observTest(): Observable<Deck[]> {
   }
 
   private handleError(error: any): Promise<any> {
-    console.log('handleError');
+    console.log('HANDLE ERROR: '+error);
     return Promise.reject(error.message || error);
   }
 }

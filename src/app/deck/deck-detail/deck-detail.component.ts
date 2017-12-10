@@ -44,7 +44,7 @@ export class DeckDetailComponent implements OnInit {
 
  goToOverview(){
     console.log('go to overview from details');
-   this.router.navigate(['view'], {relativeTo: this.route});
+   this.router.navigate(['../../','view', this.id], {relativeTo: this.route});
 
  }
   onEditDeck() {
@@ -58,7 +58,9 @@ export class DeckDetailComponent implements OnInit {
         (params: Params) => {
           this.id = params['id'];
         } );
-    this.deckService.deleteDeck(this.id);
-    this.router.navigate(['/deck']);
+    this.deckService.deleteDeck(this.id)
+      .then(()=>{ console.log('deleted');this.router.navigate(['/deck']);})
+      .catch((error) => console.log(error));
+
   }
 }

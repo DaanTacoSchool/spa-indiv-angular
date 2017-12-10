@@ -1,42 +1,62 @@
 <div class="row">
-  <div class="col-xs-12">
-    <h1>welcome to overview!</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <h2>{{ deck?.name }}</h2>
-    <h4>{{ deck?.hero_type }}</h4>
-    <h5>{{ deck?.made_by }}</h5>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-    <div
-      class="btn-group"
-      appDropdown>
-      <button
-        type="button"
-        class="btn btn-primary dropdown-toggle">
-        Options <span class="caret"></span>
-      </button>
-
+  <div class="col-xs-9">
+    <div class="card-deck">
+    <app-deck-view-card-item (addToDeckEvent)="addCardToDeck($event)"
+      *ngFor="let cardEl of cards; let i = index"
+      [card]="cardEl"
+      [id]="cardEl._id"></app-deck-view-card-item>
     </div>
   </div>
 
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    {{ deck?.description }}
+
+  <div class="col-xs-3 deck-view-cards-in-deck-component">
+    <h1>cards in deck</h1>
+
+      <app-deck-view-card-in-deck-list-item
+        *ngFor="let cardDeckEl of cardsInDeck; let i = index"
+        [card]="cardDeckEl"
+        [id]="cardDeckEl._id"></app-deck-view-card-in-deck-list-item>
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-12">
-    <!--<ul class="list-group">-->
-      <!--<li class="list-group-item" *ngFor="let ingredient of recipe.ingredients" >-->
-        <!--{{ ingredient.name }} - {{ ingredient.amount }}-->
-      <!--</li>-->
-    <!--</ul>-->
-    <app-card-item *ngFor="let card of deck?.cards"></app-card-item>
-  </div>
-</div>
+<!--<div class="row">-->
+  <!--<div class="col-xs-12">-->
+    <!--<h1>welcome to overview!</h1>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<div class="row">-->
+  <!--<div class="col-xs-12">-->
+    <!--<h2>{{ deck?.name }}</h2>-->
+    <!--<h4>{{ deck?.hero_type }}</h4>-->
+    <!--<h5>{{ deck?.made_by }}</h5>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<div class="row">-->
+  <!--<div class="col-md-6">-->
+    <!--<div-->
+      <!--class="btn-group"-->
+      <!--appDropdown>-->
+      <!--<button-->
+        <!--type="button"-->
+        <!--class="btn btn-primary dropdown-toggle">-->
+        <!--Options <span class="caret"></span>-->
+      <!--</button>-->
+
+    <!--</div>-->
+  <!--</div>-->
+<!--<p>testS</p>-->
+<!--</div>-->
+<!--<div class="row">-->
+  <!--<div class="col-xs-12">-->
+    <!--{{ deck?.description }}-->
+  <!--</div>-->
+<!--</div>-->
+<!--<div class="row">-->
+  <!--<div class="col-xs-12">-->
+    <!--&lt;!&ndash;<ul class="list-group">&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="list-group-item" *ngFor="let ingredient of recipe.ingredients" >&ndash;&gt;-->
+        <!--&lt;!&ndash;{{ ingredient.name }} - {{ ingredient.amount }}&ndash;&gt;-->
+      <!--&lt;!&ndash;</li>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+    <!--<app-card-item *ngFor="let card of deck?.cards"></app-card-item>-->
+  <!--</div>-->
+<!--</div>-->

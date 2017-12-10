@@ -1,16 +1,16 @@
 <div class="row">
   <div class="col-xs-12">
     <img
-      [src]="card.imagePath"
-      alt="{{ card.name }}"
+      [src]="card?.imagePath"
+      alt="{{ card?.name }}"
       class="img-responsive"
       style="max-height: 300px;">
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>{{ card.name }}</h1>
-    <h4>{{ card.type }}</h4>
+    <h1>{{ card?.name }}</h1>
+    <h4>{{ card?.type }}</h4>
   </div>
 </div>
 <div class="row">
@@ -25,19 +25,17 @@
       </button>
       <ul class="dropdown-menu">
         <li><a (click)="onAddToDeck()" style="cursor: pointer;">Add to a deck</a></li>
-        <!--<li><a style="cursor: pointer;" (click)="onEditRecipe()">Edit Recipe</a></li>-->
-        <!--<li><a style="cursor: pointer;" (click)="onDeleteRecipe()">Delete Recipe</a></li>-->
       </ul>
     </div>
   </div>
   <div class="col-md-6">
-    <a href="https://www.google.nl/search?q=hearthstone%20decks%20{{ card.name }}" target="_blank" class="btn btn-default">Zoek decks met deze kaart</a>
+    <a href="https://www.google.nl/search?q=hearthstone%20decks%20{{ card?.name }}" target="_blank" class="btn btn-default">Zoek decks met deze kaart</a>
   </div>
 
 </div>
 <div class="row">
   <div class="col-xs-12">
-    {{ card.description }}
+    {{ card?.description }}
   </div>
 </div>
 

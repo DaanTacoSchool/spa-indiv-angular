@@ -20,6 +20,9 @@ import { DeckEditComponent } from './deck/deck-edit/deck-edit.component';
 import { DeckItemComponent } from './deck/deck-list/deck-item/deck-item.component';
 import { DeckViewComponent } from './deck/deck-view/deck-view.component';
 import { DeckStartComponent } from './deck/deck-start/deck-start.component';
+import { DeckViewCardItemComponent } from './deck/deck-view/deck-view-card-item/deck-view-card-item.component';
+import { DeckViewCardInDeckListComponent } from './deck/deck-view/deck-view-card-in-deck-list/deck-view-card-in-deck-list.component';
+import { DeckViewCardInDeckListItemComponent } from './deck/deck-view/deck-view-card-in-deck-list-item/deck-view-card-in-deck-list-item.component';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { DeckStartComponent } from './deck/deck-start/deck-start.component';
     DeckEditComponent,
     DeckItemComponent,
     DeckViewComponent,
-    DeckStartComponent
+    DeckStartComponent,
+    DeckViewCardItemComponent,
+    DeckViewCardInDeckListComponent,
+    DeckViewCardInDeckListItemComponent
   ],
   imports: [
     BrowserModule,
