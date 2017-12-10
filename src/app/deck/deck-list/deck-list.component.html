@@ -1,0 +1,15 @@
+<div class="row">
+<div class="col-xs-12">
+<button class="btn btn-success" (click)="onNewDeck()">New deck</button>
+</div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-deck-item
+      *ngFor="let deckEl of decks; let i = index"
+      [deck]="deckEl"
+      [index]="deckEl._id"></app-deck-item>
+  </div>
+</div>
+
