@@ -30,8 +30,8 @@ export class CardDetailComponent implements OnInit {
   }
 
   onAddToDeck() {
-    // this.cardService.a(this.card);
-    console.log('todo: add to deck');
+    this.router.navigate(['../../deck/new/', this.id], {relativeTo: this.route});
+
   }
 
 

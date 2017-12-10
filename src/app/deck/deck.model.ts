@@ -7,6 +7,7 @@ export class Deck {
     public name: string,
     public description: string,
     public made_by: string,
+    public hero_type: string,
     public cards: Card[]) { }
 }
 

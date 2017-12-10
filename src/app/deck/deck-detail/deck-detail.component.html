@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-xs-12">
+    <!--<img-->
+      <!--[src]="card.imagePath"-->
+      <!--alt="{{ card.name }}"-->
+      <!--class="img-responsive"-->
+      <!--style="max-height: 300px;">-->
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h2>{{ deck?.name }}</h2>
+    <h4>{{ deck?.hero_type }}</h4>
+    <h5>{{ deck?.made_by }}</h5>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div
+      class="btn-group"
+      appDropdown>
+      <button
+        type="button"
+        class="btn btn-primary dropdown-toggle">
+        Options <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a (click)="goToOverview()" style="cursor: pointer;">View deck</a></li>
+        <li><a style="cursor: pointer;" (click)="onEditDeck()">Edit deck</a></li>
+        <li><a style="cursor: pointer;" (click)="onDeleteDeck()">Delete deck</a></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{ deck?.description }}
+  </div>
+</div>
+

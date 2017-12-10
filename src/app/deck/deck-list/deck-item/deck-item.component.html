@@ -1,0 +1,19 @@
+<a
+  style="cursor: pointer;"
+  [routerLink]="[index]"
+  routerLinkActive="active"
+  class="list-group-item clearfix">
+  <div class="pull-left bg-deckitem">
+    <h4 class="list-group-item-heading">Name: {{ deck.name }}</h4>
+    <p class="list-group-item-text">Hero: {{ deck.hero_type }}</p>
+    <p class="list-group-item-text">Made by: {{ deck.made_by }}</p>
+    <p class="list-group-item-text">Description: {{ deck.description }}</p>
+  </div>
+  <!--<span class="pull-right">-->
+        <!--<img-->
+          <!--[src]="card.imagePath"-->
+          <!--alt="{{ card.name }}"-->
+          <!--class="img-responsive"-->
+          <!--style="max-height: 50px;">-->
+      <!--</span>-->
+</a>
