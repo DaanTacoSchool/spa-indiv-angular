@@ -3,11 +3,11 @@
   [routerLink]="[index]"
   routerLinkActive="active"
   class="list-group-item clearfix">
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ deck.name }}</h4>
-    <h5 class="list-group-item-text">{{ deck.hero_type }}</h5>
-    <h6 class="list-group-item-text">{{ deck.made_by }}</h6>
-    <p class="list-group-item-text">{{ deck.description }}</p>
+  <div class="pull-left bg-deckitem">
+    <h4 class="list-group-item-heading">Name: {{ deck.name }}</h4>
+    <p class="list-group-item-text">Hero: {{ deck.hero_type }}</p>
+    <p class="list-group-item-text">Made by: {{ deck.made_by }}</p>
+    <p class="list-group-item-text">Description: {{ deck.description }}</p>
   </div>
   <!--<span class="pull-right">-->
         <!--<img-->

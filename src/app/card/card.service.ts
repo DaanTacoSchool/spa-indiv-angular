@@ -26,7 +26,18 @@ export class CardService {
         return this.handleError(error);
       });
   }
-
+  public findCard(search: string): Promise<Card[]> {
+    return this.http.post(this.serverUrl + '/search/'+ search,{ headers: this.headers })
+      .toPromise()
+      .then(response => {
+        this.cards = response.json() as Card[];
+        this.cardsChanged.next(this.cards.slice());
+        return response.json() as Card[];
+      })
+      .catch(error => {
+        return this.handleError(error);
+      });
+  }
   /* mogelijk dat dit naar de deckservice gaat! LET OP DE URL */
   public getCardsInDeck(deckid: string): Promise<Card[]> {
     console.log('cards in deck ophalen van server');

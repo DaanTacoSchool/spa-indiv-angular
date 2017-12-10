@@ -34,6 +34,9 @@ export class CardListComponent implements OnInit, OnDestroy {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 
+  refresh(newCards: Card[]){
+    this.cards = newCards;
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
