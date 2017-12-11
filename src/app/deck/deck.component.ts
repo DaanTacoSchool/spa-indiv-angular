@@ -9,8 +9,10 @@ export class DeckComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(
+  ) {
   }
 
-  // build frontend for deck
+
+
 }
