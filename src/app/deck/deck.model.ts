@@ -8,6 +8,9 @@ export class Deck {
     public description: string,
     public made_by: string,
     public hero_type: string,
-    public cards: Card[]) { }
+    public cards: Card[],
+    public userId: number
+    ) { }
+
 }
 

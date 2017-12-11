@@ -42,9 +42,9 @@
 
 .float-right{
   margin-top: 2%;
-  float: right;
-  margin-left: 68%;
-  margin-right: -58px;
+  /*float: right;*/
+  margin-left: -21%; /* 68% */
+  /*margin-right: -58px;*/
   position: fixed;
   z-index: 99999999999;
 }

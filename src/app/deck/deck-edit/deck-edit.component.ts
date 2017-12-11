@@ -77,6 +77,14 @@ export class DeckEditComponent implements OnInit {
       tmpCards=[this.card];
     }
 
+    let tmpUserId: number;
+    if( this.deckForm.value['user id']){
+      tmpUserId =  this.deckForm.value['user id'];
+    }else if(tmpId){
+      tmpUserId= this.deck.userId;
+    }else{
+      tmpUserId=null;
+    }
     console.log(tmpCards);
     const newDeck = new Deck(
      tmpId,
@@ -84,7 +92,8 @@ export class DeckEditComponent implements OnInit {
       this.deckForm.value['description'],
       this.deckForm.value['made by'],
       this.deckForm.value['hero'],
-      tmpCards
+      tmpCards,
+      tmpUserId
 
     );
     if (this.editMode) {
@@ -113,13 +122,15 @@ export class DeckEditComponent implements OnInit {
     let deckMade_By = '';
     let deckDescription = '';
     let deckHero_type = '';
+    let deckUserId = null;
     if (this.editMode) {
       this.deckService.getDeck(this.id.toString())
         .then(deck => { this.deck = deck;
           deckName = this.deck.name;
           deckMade_By = this.deck.made_by;
           deckDescription = this.deck.description;
-          deckHero_type = this.deck.hero_type; })
+          deckHero_type = this.deck.hero_type;
+        deckUserId = this.deck.userId; })
         .catch(error => console.log(error));
 
     }else{
@@ -131,7 +142,8 @@ export class DeckEditComponent implements OnInit {
       'name': new FormControl(deckName),
       'made by': new FormControl(deckMade_By),
       'description': new FormControl(deckDescription),
-      'hero': new FormControl(deckHero_type)
+      'hero': new FormControl(deckHero_type),
+      'user id': new FormControl(deckUserId),
     });
 
   }
