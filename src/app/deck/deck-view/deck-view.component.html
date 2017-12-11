@@ -13,7 +13,7 @@
   <div class="col-xs-3 deck-view-cards-in-deck-component">
     <h1>cards in deck</h1>
 
-      <app-deck-view-card-in-deck-list-item
+      <app-deck-view-card-in-deck-list-item (removeFromDeckEvent)="removeCardFromDeck($event)"
         *ngFor="let cardDeckEl of cardsInDeck; let i = index"
         [card]="cardDeckEl"
         [id]="cardDeckEl._id"></app-deck-view-card-in-deck-list-item>
