@@ -1,12 +1,11 @@
 <div class="row">
   <div class="col-xs-12">
-    <form [formGroup]="deckForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="deckForm" (ngSubmit)="onSubmit()" #f="ngForm">
       <div class="row">
         <div class="col-xs-12">
           <button
             type="submit"
-            class="btn btn-success" >Save</button>
-          <!--<span ng-click="onSubmit()">Sumbit</span>-->
+            class="btn btn-success"  [disabled]="!f.valid" >Save</button>
           <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
         </div>
       </div>
