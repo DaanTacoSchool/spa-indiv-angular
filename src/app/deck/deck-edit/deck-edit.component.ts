@@ -6,6 +6,8 @@ import {DeckService} from "../deck.service";
 import {CardService} from "../../card/card.service";
 import {Subscription} from "rxjs/Subscription";
 import {Card} from "../../card/card.model";
+import {UserService} from "../../shared/user.service";
+import {User} from "../../shared/user.model";
 
 @Component({
   selector: 'app-deck-edit',
@@ -13,7 +15,7 @@ import {Card} from "../../card/card.model";
   styleUrls: ['./deck-edit.component.css']
 })
 export class DeckEditComponent implements OnInit {
-
+  users: User[];
   id: string;
   cardid: string; // for when creating a deck from cardlist
   card: Card;
@@ -28,6 +30,7 @@ export class DeckEditComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private deckService: DeckService,
               private cardService: CardService,
+              private userService: UserService,
               private router: Router) {
     this.initForm();
 
@@ -115,9 +118,21 @@ export class DeckEditComponent implements OnInit {
   onCancel() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
-searchUser(username){
-    console.log(username);
-}
+  searchUser(srch:string) {
+    console.log('search users deckedit:' +srch);
+
+    if (srch === '' || srch === 'search' || srch == null) {
+    //get all and refresh
+      console.log('get all' +srch);
+    }else{
+      //execute search
+      this.userService.findUsers(srch).then((users) => {
+      this.users = users;
+      console.log(this.users+'usersssssssss');
+      });
+      console.log('search users end:' +srch);
+    }
+  }
   private initForm() {
     let deck2: Deck;
     let deckName ='';
