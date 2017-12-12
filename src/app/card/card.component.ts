@@ -8,12 +8,13 @@ import {CardService} from "./card.service";
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-search: string;
+  search: string;
+  @ViewChild(CardListComponent) cardList: CardListComponent;
   constructor(private cardService: CardService) { }
 
   ngOnInit() {
   }
-  @ViewChild(CardListComponent) cardList: CardListComponent;
+
 
 
   searchCard(srch:string) {
