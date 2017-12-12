@@ -6,6 +6,7 @@
           <button
             type="submit"
             class="btn btn-success" >Save</button>
+          <!--<span ng-click="onSubmit()">Sumbit</span>-->
           <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
         </div>
       </div>
@@ -17,7 +18,8 @@
               type="text"
               id="name"
               formControlName="name"
-              class="form-control">
+              class="form-control" ngModel
+              required="true" >
           </div>
         </div>
       </div>
@@ -30,6 +32,8 @@
               id="made by"
               formControlName="made by"
               class="form-control"
+              ngModel
+              required
               #made_by>
           </div>
         </div>
@@ -47,7 +51,33 @@
               #userId>
           </div>
         </div>
+        <!--<div class="col-xs-3">-->
+          <!--<div class="form-group">-->
+            <!--<div-->
+              <!--class="btn-group"-->
+              <!--appDropdown>-->
+              <!--<button-->
+                <!--type="button"-->
+                <!--class="btn btn-primary  invisible dropdown-toggle">-->
+                <!--Options <span class="caret"></span>-->
+              <!--</button>-->
+              <!--<input [(ngModel)]="search" (change)="searchUser(search)" type="search">-->
+              <!--&lt;!&ndash;<button type="button" class="btn btn-info" (click)="searchUser(search)">Search</button>&ndash;&gt;-->
+              <!--<ul class="dropdown-menu">-->
+               <!--<li>{{search}}</li>-->
+              <!--</ul>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<input&ndash;&gt;-->
+              <!--&lt;!&ndash;type="text"&ndash;&gt;-->
+              <!--&lt;!&ndash;id="user id"&ndash;&gt;-->
+              <!--&lt;!&ndash;formControlName="user id"&ndash;&gt;-->
+              <!--&lt;!&ndash;class="form-control"&ndash;&gt;-->
+              <!--&lt;!&ndash;placeholder="leave blank if unknown or creating new deck"&ndash;&gt;-->
+              <!--&lt;!&ndash;#userId>&ndash;&gt;-->
+          <!--</div>-->
+        <!--</div>-->
       </div>
+
       <!--<div class="row">-->
         <!--<div class="col-xs-12">-->
           <!--<img [src]="imagePath.value" class="img-responsive">-->

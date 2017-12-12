@@ -115,7 +115,9 @@ export class DeckEditComponent implements OnInit {
   onCancel() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
-
+searchUser(username){
+    console.log(username);
+}
   private initForm() {
     let deck2: Deck;
     let deckName ='';

@@ -41,11 +41,11 @@
 }
 
 .float-right{
-  margin-top: 2%;
+ /* margin-top: 2%;*/
   /*float: right;*/
-  margin-left: -21%; /* 68% */
+ /* margin-left: -21%; *//* 68% */
   /*margin-right: -58px;*/
-  position: fixed;
+  position: relative;
   z-index: 99999999999;
 }
 

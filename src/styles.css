@@ -3,6 +3,6 @@ html, body{
   min-width: 100%;
 }
 .base{
-  background: url("http://static-hearth.cursecdn.com/1-0-6550-17875/Skins/Hearth/images/hearthpwn-bg.jpg")  no-repeat center center fixed;
+  background: url("http://static-hearth.cursecdn.com/1-0-6550-17875/Skins/Hearth/images/hearthpwn-bg.jpg");
   padding-top: 10px;
 }
