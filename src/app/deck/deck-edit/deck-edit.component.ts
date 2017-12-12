@@ -23,6 +23,7 @@ export class DeckEditComponent implements OnInit {
   deckForm: FormGroup;
   public deck: Deck;
   decks: Deck[];
+  search:string;// not used. ever. heroku crasht op dit veld als dit niet hier staat .
 
   private subscription: Subscription;
 
