@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {environment} from "../../environments/environment.prod";
+import {environment} from "../../environments/environment";
 import {User} from "./user.model";
 import {Http} from "@angular/http";
 import {Subject} from "rxjs/Subject";
@@ -27,7 +27,7 @@ export class UserService {
   }
 
   private handleError(error: any): Promise<any> {
-    console.log('HANDLE ERROR: '+error);
+    console.log('HANDLE ERROR: ' +error);
     return Promise.reject(error.message || error);
   }
 }
