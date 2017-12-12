@@ -1,8 +1,11 @@
 .cdli-div{
   height: 50px;
-  width:200px;
+  /*width:200px;*/
 }
 
+.cdli-div :hover{
+  background: #f3eddd14;
+}
 .cdli-img{
   height:50px;
   width:50px;
@@ -11,4 +14,13 @@
 
 .cdli-p{
   margin-left: 58px;
+}
+
+.move-right{
+  left: 204px;
+  top: 5px;
+}
+
+.width-100{
+  width: 100%;
 }

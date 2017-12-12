@@ -8,19 +8,25 @@ import {CardService} from "./card.service";
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-
+  search: string;
+  @ViewChild(CardListComponent) cardList: CardListComponent;
   constructor(private cardService: CardService) { }
 
   ngOnInit() {
   }
-  @ViewChild(CardListComponent) cardList: CardListComponent;
 
 
-  searchCard(srch:string){
-    if(srch===''){
-      this.cardService.getAllCards().then((cards)=> { this.cardList.refresh(cards);});
+
+  searchCard(srch:string) {
+
+    if (srch === '' || srch === 'search' || srch == null) {
+        this.cardService.getAllCards().then((cards) => {
+          this.cardList.refresh(cards);
+          });
+    }else{
+        this.cardService.findCard(srch).then((cards) => {
+          this.cardList.refresh(cards);
+          });
     }
-    console.log(srch);
-      this.cardService.findCard(srch).then((cards)=> { this.cardList.refresh(cards);});
   }
 }

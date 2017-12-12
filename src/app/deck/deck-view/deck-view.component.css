@@ -3,4 +3,19 @@
   color: #f3edddde;
   margin-left: 60%;
   background: #f3eddd14;
+  overflow-y: scroll;
+  max-height: 95%;
+}
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
+.pad-btm{
+  padding-bottom: 10px;
+  margin-bottom: 1%;
 }

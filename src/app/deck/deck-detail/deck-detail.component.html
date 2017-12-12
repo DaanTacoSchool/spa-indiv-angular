@@ -1,3 +1,4 @@
+<div class="bg">
 <div class="row">
   <div class="col-xs-12">
     <!--<img-->
@@ -9,9 +10,9 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h2>{{ deck?.name }}</h2>
-    <h4>{{ deck?.hero_type }}</h4>
-    <h5>{{ deck?.made_by }}</h5>
+    <h2>Name: {{ deck?.name }}</h2>
+    <h4>Hero: {{ deck?.hero_type }}</h4>
+    <h5>Author: {{ deck?.made_by }}</h5>
   </div>
 </div>
 <div class="row">
@@ -33,9 +34,12 @@
   </div>
 
 </div>
+  <hr>
 <div class="row">
+  <label>Description</label>
   <div class="col-xs-12">
     {{ deck?.description }}
   </div>
 </div>
 
+</div>

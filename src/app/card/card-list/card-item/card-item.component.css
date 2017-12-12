@@ -4,3 +4,17 @@
 }
 .card {display:inline-block;}
 .card-img-top {width:275px;height:400px;}
+
+.visibledevice {display:none;}
+.visibledesktop {display:inline-block;}
+
+@media (max-width : 500px) {
+  .visibledevice {
+    display: block;
+  }
+
+  .visibledesktop {
+    display: none;
+  }
+  .card{ display: block;}
+}

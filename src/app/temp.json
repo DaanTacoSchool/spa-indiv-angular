@@ -1,0 +1,210 @@
+/* data to insert into database for bulkinsert */
+
+[
+  {
+    "name" : "target dummy",
+    "description" : "taunt",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/149/57/12288.png",
+    "type" : "minion",
+    "event" : "taunt"
+  }
+,
+  {
+    "name" : "murloc raider",
+    "description" : "",
+    "imagePath" : "https://hearthstone.gamepedia.com/media/hearthstone.gamepedia.com/thumb/e/e4/Murloc_Raider%2855%29.png/200px-Murloc_Raider%2855%29.png?version=cb311cf2b33459579485bc689d22ce4d",
+    "type" : "murloc",
+    "event" : ""
+  }
+,
+  {
+    "name" : "molten giant",
+    "description" : "Costs (1) less for each damage your hero has taken.",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/331/129/94.png",
+    "type" : "",
+    "event" : ""
+  }
+,
+  {
+    "name" : "arcane giant",
+    "description" : "Costs (1) less for each spell you ve cast this game.",
+    "imagePath" : "https://media-hearth.cursecdn.com/avatars/331/935/42049.png",
+    "type" : "",
+    "event" : ""
+  }
+,
+  {
+    "name" : "aviana",
+    "description" : "your minions cost (1).",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/327/929/22325.png",
+    "type" : "",
+    "event" : ""
+  }
+,
+  {
+    "name" : "Abyssal enforcer",
+    "description" : "battlecry: deal 3 damage to all other characters",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/329/508/49691.png",
+    "type" : "Demon",
+    "event" : "Battlecry"
+  }
+,
+  {
+    "name" : "Captured Jormungar",
+    "description" : "",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/328/109/22377.png",
+    "type" : "Beast",
+    "event" : ""
+  }
+,
+  {
+    "name" : "Green jelly",
+    "description" : "At the end of your turn, summon a 1/2 ooze with taunt",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/356/184/77007.png",
+    "type" : "",
+    "event" : ""
+  }
+,
+  {
+    "name" : "Grook fu master",
+    "description" : "Windfury",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/329/343/49658.png",
+    "type" : "",
+    "event" : "Windfury"
+  }
+,
+  {
+    "name" : "Hemet nesingwary",
+    "description" : "Battlecry: Destroy a beast",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/331/695/12268.png",
+    "type" : "",
+    "event" : "Battlecry"
+  }
+,
+  {
+    "name" : "Naga Sea Witch",
+    "description" : "Your cards cost (5)",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/332/472/27231.png",
+    "type" : "",
+    "event" : ""
+  }
+,
+  {
+    "name" : "Ogre Ninja",
+    "description" : "Stealth 50% change to attack the wrong enemy",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/331/589/12235.png",
+    "type" : "",
+    "event" : "Stealth"
+  }
+,
+  {
+    "name" : "Onyx Bishop",
+    "description" : "Battlecry: summon a friendly minion that died this game",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/331/917/42058.png",
+    "type" : "",
+    "event" : "Battlecry"
+  }
+,
+  {
+    "name" : "Possessed Lackey",
+    "description" : "Deathrattle: Recruit a Demon",
+    "imagePath" : "https://media-hearth.cursecdn.com/avatars/356/292/76948.png",
+    "type" : "",
+    "event" : "Deathrattle, Recruit"
+  }
+,
+  {
+    "name" : "Ram Wrangler",
+    "description" : "Battlecry: if you have a Beast, summon a random Beast",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/327/797/22344.png",
+    "type" : "",
+    "event" : "Battlecry"
+  }
+,
+  {
+    "name" : "Red Mana Wyrm",
+    "description" : "Whenever you cast a spell, gain +2 attack.",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/328/965/49762.png",
+    "type" : "",
+    "event" : "action"
+  }
+,
+  {
+    "name" : "Salty Dog",
+    "description" : "",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/331/532/12263.png",
+    "type" : "Pirate",
+    "event" : ""
+  }
+,
+  {
+    "name" : "Stranglethorn Tiger",
+    "description" : "Stealth",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/330/405/338.png",
+    "type" : "Beast",
+    "event" : ""
+  }
+,
+  {
+    "name" : "Starving Buzzard",
+    "description" : "Whenever you summon a Beast, Draw a card",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/330/273/101.png",
+    "type" : "Beast",
+    "event" : ""
+  }
+,
+  {
+    "name" : "Tar Lurker",
+    "description" : "Taunt has +3 attack during yout opponents turn",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/334/908/55578.png",
+    "type" : "Elemental",
+    "event" : ""
+  }
+,
+  {
+    "name" : "Arcanosmith",
+    "description" : "Battlecry summon a 0/5 minion with taunt",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/331/929/42062.png",
+    "type" : "",
+    "event" : "Battlecry"
+  }
+,
+  {
+    "name" : "Bloodhoof Brave",
+    "description" : "Taunt, Enrage: +3 attack",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/333/843/35205.png",
+    "type" : "",
+    "event" : "Taunt, Enrage"
+  }
+,
+  {
+    "name" : "Chillblade Champion",
+    "description" : "Charge, Lifesteal",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/339/651/58721.png",
+    "type" : "",
+    "event" : "Charge, Lifesteal"
+  }
+,
+  {
+    "name" : "Dalaran Aspirant",
+    "description" : "Inspire: Gain spell damage +1",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/327/785/22359.png",
+    "type" : "",
+    "event" : "Inspire, Spell damage"
+  }
+,
+  {
+    "name" : "Dreadsteed",
+    "description" : "Deathrattle: at the end of your turn summon a dreadsteed",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/339/134/22337.png",
+    "type" : "Demon",
+    "event" : "Deathrattle"
+  }
+,
+  {
+    "name" : "Fireguard Destroyer",
+    "description" : "Battlecry: gain 1-4 attack. Overload (1)",
+    "imagePath" : "http://media-hearth.cursecdn.com/avatars/328/299/14455.png",
+    "type" : "Elemental",
+    "event" : "Battlecry, Overload"
+  }]

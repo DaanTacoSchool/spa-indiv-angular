@@ -64,9 +64,6 @@ export class DeckViewComponent implements OnInit {
 
   addCardToDeck(cardId: string){
     let cardIndex = this.cards.findIndex(x=>x._id === cardId);
-
-    //  this.deckService.createDeck(newDeck).then((deck) => { this.deck = deck; this.addCardToDeck(cardId);}).catch(error => console.log(error));
-
    this.deckService.addCardToDeck(this.deck, this.cards[cardIndex])
      .then(deck => {this.deck = deck;
        this.cardService.getCardsInDeck(this.deck._id)
@@ -74,13 +71,22 @@ export class DeckViewComponent implements OnInit {
          .catch(error => console.log(error));
      })
      .catch(error => console.log(error));
-/*.then(() => {
-       this.cardService.getAllCards()
-         .then(cards => this.cardsInDeck = cards)
-         .catch(error => console.log(error));
-     })*/
-
-
   }
 
+  removeCardFromDeck(cardId: string){
+    let cardInDeckIndex = this.cardsInDeck.findIndex(x=>x._id === cardId);
+    if(cardInDeckIndex >-1) {
+      this.cardsInDeck.splice(cardInDeckIndex, 1);
+      console.log('spliced');
+    }
+    this.deck.cards = this.cardsInDeck;
+
+    this.deckService.removeCardFromDeck(this.deck)
+      .then(deck => {this.deck = deck;
+        this.cardService.getCardsInDeck(this.deck._id)
+          .then(cardsInDeck => this.cardsInDeck = cardsInDeck)
+          .catch(error => console.log(error));
+      })
+      .catch(error => console.log(error));
+  }
 }

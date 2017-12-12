@@ -23,6 +23,7 @@ import { DeckStartComponent } from './deck/deck-start/deck-start.component';
 import { DeckViewCardItemComponent } from './deck/deck-view/deck-view-card-item/deck-view-card-item.component';
 import { DeckViewCardInDeckListComponent } from './deck/deck-view/deck-view-card-in-deck-list/deck-view-card-in-deck-list.component';
 import { DeckViewCardInDeckListItemComponent } from './deck/deck-view/deck-view-card-in-deck-list-item/deck-view-card-in-deck-list-item.component';
+import {UserService} from "./shared/user.service";
 
 
 @NgModule({
@@ -53,7 +54,7 @@ import { DeckViewCardInDeckListItemComponent } from './deck/deck-view/deck-view-
     AppRoutingModule,
     HttpModule
   ],
-  providers: [CardService, DeckService],
+  providers: [CardService, DeckService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

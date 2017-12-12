@@ -1,48 +1,73 @@
 <div class="row">
   <div class="col-xs-12">
-    <form [formGroup]="deckForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="deckForm" (ngSubmit)="onSubmit()" #f="ngForm">
       <div class="row">
         <div class="col-xs-12">
           <button
             type="submit"
-            class="btn btn-success" >Save</button>
+            class="btn btn-success"  [disabled]="!deckForm.valid" >Save</button>
           <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="name">Name</label>
+            <label class="white" for="name">Name</label>
             <input
               type="text"
               id="name"
               formControlName="name"
-              class="form-control">
+              class="form-control" ngModel
+              required="true" >
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="made by">made byL</label>
+            <label class="white" for="made by">made by</label>
             <input
               type="text"
               id="made by"
               formControlName="made by"
               class="form-control"
+              ngModel
+              required
               #made_by>
           </div>
         </div>
       </div>
-      <!--<div class="row">-->
-        <!--<div class="col-xs-12">-->
-          <!--<img [src]="imagePath.value" class="img-responsive">-->
-        <!--</div>-->
-      <!--</div>-->
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="form-group">
+            <label class="white" for="user id">User id</label>
+            <input
+              type="text"
+              id="user id"
+              formControlName="user id"
+              class="form-control"
+              placeholder="leave blank if unknown or creating new deck"
+              #userId>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div>
+            <div
+              class="btn-group"
+              appDropdown>
+
+              <input [(ngModel)]="search" (change)="searchUser(search)" type="text"  [ngModelOptions]="{standalone: true}">
+              <button type="button" class="btn btn-info" (click)="searchUser(search)">Search</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="description">Description</label>
+            <label class="white" for="description">Description</label>
             <textarea
               type="text"
               id="description"
@@ -55,13 +80,12 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="hero">Hero</label>
-            <textarea
+            <label class="white" for="hero">Hero</label>
+            <input
               type="text"
               id="hero"
               class="form-control"
-              formControlName="hero"
-              rows="6"></textarea>
+              formControlName="hero">
           </div>
         </div>
       </div>
@@ -70,43 +94,6 @@
           <a class="btn btn-primary" (click)="goToOverview()">go to card overview</a>
         </div>
       </div>
-      <!--<div class="row">-->
-        <!--<div class="col-xs-12" formArrayName="ingredients">-->
-          <!--<div-->
-            <!--class="row"-->
-            <!--*ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index"-->
-            <!--[formGroupName]="i"-->
-            <!--style="margin-top: 10px;">-->
-            <!--<div class="col-xs-8">-->
-              <!--<input-->
-                <!--type="text"-->
-                <!--class="form-control"-->
-                <!--formControlName="name">-->
-            <!--</div>-->
-            <!--<div class="col-xs-2">-->
-              <!--<input-->
-                <!--type="number"-->
-                <!--class="form-control"-->
-                <!--formControlName="amount">-->
-            <!--</div>-->
-            <!--<div class="col-xs-2">-->
-              <!--<button-->
-                <!--type="button"-->
-                <!--class="btn btn-danger"-->
-                <!--(click)="onDeleteIngredient(i)">X</button>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<hr>-->
-          <!--<div class="row">-->
-            <!--<div class="col-xs-12">-->
-              <!--<button-->
-                <!--type="button"-->
-                <!--class="btn btn-success"-->
-                <!--(click)="onAddIngredient()">Add Ingredient</button>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
     </form>
   </div>
 </div>

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Card} from "../../../card/card.model";
+import {DeckService} from "../../deck.service";
 
 
 @Component({
@@ -10,12 +11,16 @@ import {Card} from "../../../card/card.model";
 export class DeckViewCardInDeckListItemComponent implements OnInit {
   @Input() card: Card;
   @Input() id: string;
+  @Output() removeFromDeckEvent:EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+  constructor(private deckService: DeckService) { }
 
   ngOnInit() {
   }
 
+  removeCardFromDeck(cardId: string){
+    this.removeFromDeckEvent.emit(cardId);
+  }
 
 
 }
