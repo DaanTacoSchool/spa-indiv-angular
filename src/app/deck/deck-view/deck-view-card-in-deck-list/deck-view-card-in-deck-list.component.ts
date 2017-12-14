@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeckViewCardInDeckListComponent implements OnInit {
 
+  // TODO: kan weg? TLDR niet deleten want dat kan errors geven
   constructor() { }
 
   ngOnInit() {

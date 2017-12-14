@@ -15,8 +15,6 @@ export class CardComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
   searchCard(srch:string) {
 
     if (srch === '' || srch === 'search' || srch == null) {

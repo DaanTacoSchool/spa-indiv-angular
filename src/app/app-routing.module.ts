@@ -9,11 +9,10 @@ import { DeckComponent } from './deck/deck.component';
 import { DeckStartComponent } from './deck/deck-start/deck-start.component';
 import { DeckItemComponent} from './deck/deck-list/deck-item/deck-item.component';
 import { DeckListComponent} from './deck/deck-list/deck-list.component';
-import {Deck} from './deck/deck.model';
 import {DeckDetailComponent} from './deck/deck-detail/deck-detail.component';
 import {DeckEditComponent} from './deck/deck-edit/deck-edit.component';
 import {DeckViewComponent} from './deck/deck-view/deck-view.component';
-
+// ignore unused imports they are here for reference
 const appRoutes: Routes = [
 
   { path: '', redirectTo: '/cards', pathMatch: 'full' },
@@ -32,7 +31,7 @@ const appRoutes: Routes = [
   { path: 'view/:id', component: DeckViewComponent},
 
 ];
-// TODO add path for new deck
+
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]

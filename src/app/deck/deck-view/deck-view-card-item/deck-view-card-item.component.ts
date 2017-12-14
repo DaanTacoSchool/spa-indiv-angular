@@ -16,7 +16,7 @@ export class DeckViewCardItemComponent implements OnInit {
   }
 
   addCardToDeck(cardId: string){
-    console.log('decklistitem id:'+cardId);
+   // console.log('decklistitem id:'+cardId);
     this.addToDeckEvent.emit(cardId);
   }
 }

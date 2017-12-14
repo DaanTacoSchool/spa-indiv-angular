@@ -58,6 +58,9 @@
 
               <input [(ngModel)]="search" (change)="searchUser(search)" type="text"  [ngModelOptions]="{standalone: true}">
               <button type="button" class="btn btn-info" (click)="searchUser(search)">Search</button>
+              <select [(ngModel)]="users" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let u of users" [ngValue]="users" >ID: {{u.userid}}, Name: {{u.name}}</option>
+              </select>
 
             </div>
           </div>
