@@ -28,9 +28,7 @@ export class DeckListComponent implements OnInit,OnDestroy {
     this.deckService.getDecks()
       .then(decks => {this.decks = decks; })
       .catch(error => console.log(error));
-
   }
-
 
   onNewDeck() {
     this.router.navigate(['new'], {relativeTo: this.route});

@@ -64,7 +64,7 @@ export class DeckViewComponent implements OnInit {
 
   addCardToDeck(cardId: string){
     let cardIndex = this.cards.findIndex(x=>x._id === cardId);
-   this.deckService.addCardToDeck(this.deck, this.cards[cardIndex])
+    this.deckService.addCardToDeck(this.deck, this.cards[cardIndex])
      .then(deck => {this.deck = deck;
        this.cardService.getCardsInDeck(this.deck._id)
          .then(cardsInDeck => this.cardsInDeck = cardsInDeck)
@@ -77,7 +77,7 @@ export class DeckViewComponent implements OnInit {
     let cardInDeckIndex = this.cardsInDeck.findIndex(x=>x._id === cardId);
     if(cardInDeckIndex >-1) {
       this.cardsInDeck.splice(cardInDeckIndex, 1);
-      console.log('spliced');
+    //  console.log('spliced');
     }
     this.deck.cards = this.cardsInDeck;
 

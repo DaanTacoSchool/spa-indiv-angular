@@ -1,12 +1,10 @@
 
 <div class="cdli-div">
-
   <div
     class="btn-group width-100"
     appDropdown>
   <img class="rounded float-left cdli-img" [src]="card?.imagePath" alt="Card image cap">
   <p class="cdli-p">{{card?.name}}</p>
-
     <ul class="dropdown-menu move-right">
       <li><a (click)="removeCardFromDeck(card?._id)">Remove</a></li>
     </ul>

@@ -26,6 +26,7 @@ export class DeckEditComponent implements OnInit {
   search:string;// not used. ever. heroku crasht op dit veld als dit niet hier staat .
 
   private subscription: Subscription;
+  private userSubscription: Subscription;
 
 
   constructor(private route: ActivatedRoute,
@@ -51,6 +52,12 @@ export class DeckEditComponent implements OnInit {
           this.decks = decks;
         }
       );
+    this.userSubscription = this.userService.usersSearchedChanged
+      .subscribe(
+        (users: User[]) => {
+          this.users = users;
+        }
+      );
     if(this.id) {
       this.deckService.getDeck(this.id.toString())
         .then(deck => this.deck = deck)
@@ -66,6 +73,7 @@ export class DeckEditComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('edit or create deck  !!!!!!!!!');
     // check whether this is an edit or a kind of creation, make sure the right data is put through.
     let tmpId:string;
     if(this.id === 'new' || this.id==null){
@@ -101,9 +109,11 @@ export class DeckEditComponent implements OnInit {
 
     );
     if (this.editMode) {
+      console.log('to deckservice updatedeck');
       this.deckService.updateDeck(this.id,newDeck);
      // this.subscript
     } else {
+      console.log('to deckservice createdeck');
       this.deckService.createDeck(newDeck); // this.deckForm.value
     }
     this.onCancel();
@@ -119,21 +129,21 @@ export class DeckEditComponent implements OnInit {
   onCancel() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
+
   searchUser(srch:string) {
-    console.log('search users deckedit:' +srch);
+   // console.log('search users deckedit:' +srch);
 
     if (srch === '' || srch === 'search' || srch == null) {
-    //get all and refresh
-      console.log('get all' +srch);
+      // do nothing as you dont need all users you either know your own name or create a new instance
     }else{
-      //execute search
-      this.userService.findUsers(srch).then((users) => {
-      this.users = users;
-      console.log(this.users+'usersssssssss');
-      });
-      console.log('search users end:' +srch);
+    //  console.log('execute search');
+      this.userService.findUsers(srch)
+        .then((users) => { console.log('users deckedit: '+users); this.users = users;})
+        .catch((error) => console.log(error));
+
     }
   }
+
   private initForm() {
     let deck2: Deck;
     let deckName ='';
@@ -152,7 +162,7 @@ export class DeckEditComponent implements OnInit {
         .catch(error => console.log(error));
 
     }else{
-      console.log('creation mode');
+    //  console.log('creation mode');
     }
 
     // note! doesnt have ids or cards here so make sure to include them from other sources. this is because these things can be missing.

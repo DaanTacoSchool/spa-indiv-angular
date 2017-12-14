@@ -19,7 +19,7 @@ export class DeckService {
 
 
   public getDecks(): Promise<Deck[]> {
-    console.log('deck ophalen van server');
+   // console.log('deck ophalen van server');
     return this.http.get(this.serverUrl, { headers: this.headers })
       .toPromise()
       .then(response => {
@@ -53,6 +53,8 @@ export class DeckService {
     return this.http.post(this.serverUrl , d)
       .toPromise()
       .then(response => {
+      //  console.log('deck create then');
+      //  console.log(response.json());
         let tmpDeck = response.json() as Deck;
         this.decks.push(tmpDeck);
         this.decksChanged.next(this.decks.slice());
@@ -77,7 +79,6 @@ export class DeckService {
         const tDeck= response.json() as Deck;
         this.deckChanged.next(tDeck);
         return tDeck;
-
       })
       .catch(error => {
         return this.handleError(error);
@@ -88,14 +89,12 @@ export class DeckService {
   // removeCardFromDeck(deck: Deck, card: Card) {
   removeCardFromDeck(deck: Deck) {
     const d = deck;
-
     return this.http.put(this.serverUrl + '/' + d._id , d)
       .toPromise()
       .then(response => {
         const tDeck= response.json() as Deck;
         this.deckChanged.next(tDeck);
         return tDeck;
-
       })
       .catch(error => {
         return this.handleError(error);
@@ -107,10 +106,9 @@ export class DeckService {
     return this.http.put(this.serverUrl + '/' + index , newDeck)
       .toPromise()
       .then(response => {
-       // this.decks.push(newDeck);
         let arrayIndex = this.decks.findIndex(x=>x._id === index);
         this.decks[arrayIndex] = response.json() as Deck;
-         this.decksChanged.next(this.decks.slice());
+        this.decksChanged.next(this.decks.slice());
         return response.json() as Deck;
       })
       .catch(error => {
@@ -131,7 +129,7 @@ export class DeckService {
   }
 
   private handleError(error: any): Promise<any> {
-    console.log('HANDLE ERROR: '+error);
+    //console.log('HANDLE ERROR: '+error);
     return Promise.reject(error.message || error);
   }
 }
